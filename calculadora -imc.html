@@ -12,76 +12,97 @@
 <body>
     <div class="container bg-white my-5 p-4 border border-warning rounded">
         <div class="row">
-            <div class="col-sm-6">1coluna
-                <h4>selecione</h4>
-                <label>
-                    <input type="radio" name="tipo" value="adulto" onchange="atualizarSelecao('tipo')">
-                    <span  id="lblAdulto">Adulto</span>
-                </label>
-                <label>
-                    <input type="radio" name="tipo" value="crianca" onchange="atualizarSelecao('tipo')">
-                    <span  id="lblCrianca">crianca</span>
-                </label>
-                <p class="text-muted small mt-2" id="infoIdade"></p>
+            <div class="col-6 col-sm-6 col-md-4 ">1coluna
+                <!-- linha contendo o tipo adulto ou criança-->
+                <section class="row">
+                    <div class="col-12">
+                        <h4>selecione</h4>
+                        <label>
+                            <input type="radio" name="tipo" value="adulto" onchange="atualizarSelecao('tipo')">
+                            <span  id="lblAdulto">Adulto</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="tipo" value="crianca" onchange="atualizarSelecao('tipo')">
+                            <span  id="lblCrianca">crianca</span>
+                        </label>
+                        <p class="text-muted small mt-2" id="infoIdade"></p>
+                    </div>
+                </section>
+                <!--linha contendo, altura e idade-->
+                <section class="row">
+                    <div class="col-sm-4">
+                        
+                        <label for="peso" class="form-label">Peso(Kg)</label>
+                        <input type="number" class="form-control" id="peso" step="0.1">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="altura" class="form-label">Altura</label>
+                        <input type="number" class="form-control" id="altura" step="0.01">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="idade" class="form-label">Idade</label>
+                        <select id="idade" class="form-select">
+                            <option value="">--</option>
+                        </select>
+                    </div>
+                </section>
             </div>
-
-
-            <div class="col-sm-6">2coluna
-                <h4>sexo</h4>
+            <div class="col-6 col-sm-6 col-md-8 bg-light">
+                <h4>Sexo biológico</h4>
                 <label>
-                    <input type="radio" name="tipo" value="masculino" onchange="atualizarSelecao('tipo')">
-                    <span class="opcao texto ativo " id="lblMasculino">Masclino</span>
+                    <input type="radio" name="sexo" value="masculino" onchange="atualizarSelecao('sexo')">
+                    <span id="lblMasculino">Masculino</span>
                 </label>
                 <label>
-                    <input type="radio" name="tipo" value="feminino" onchange="atualizarSelecao('tipo')">
-                    <span  id="lblFeminino">Feminio</span>
+                    <input type="radio" name="sexo" value="feminino" onchange="atualizarSelecao('sexo')">
+                    <span id="lblFeminino">Feminino</span>
                 </label>
-                <p class="sub-info" id="infoGenero"></p>
+                <p class="sub-info" id="infoIdade"></p>
             </div>
         </div>
     </div>
+                
+            
+
+
+          
 
 
 
     <script>
-        function atualizarSelecao(grupo) 
-        {
-            console.log("Entrei no atualizarSelecao:"+ grupo)
-            if(grupo === 'tipo')
-            {
+        function atualizarSelecao(grupo) {
+            console.log("Entrei no atualizarSelecao: " + grupo)
+            if (grupo === 'tipo') {
                 const tipoSelecionado = document.querySelector('input[name="tipo"]:checked').value;
                 const infoIdade = document.getElementById('infoIdade');
 
-                if(tipoSelecionado === 'adulto')
-            {
-                document.getElementById('lblAdulto').classList.add('laranja');
-                document.getElementById('lblCrianca').classList.remove('laranja');
-                infoIdade.textContent = "Acima de 19 anos";
-            }
-            else{
-                document.getElementById('lblCrianca').classList.add('laranja');
-                document.getElementById('lblAdulto').classList.remove('laranja');
-                infoIdade.textContent = "Abaixo de 19 anos";
-
+                if (tipoSelecionado === 'adulto') {
+                    document.getElementById('lblAdulto').classList.add('laranja');
+                    document.getElementById('lblCrianca').classList.remove('laranja');
+                    infoIdade.textContent = "Acima de 19 anos";
                 }
-
+                else {
+                    document.getElementById('lblCrianca').classList.add('laranja');
+                    document.getElementById('lblAdulto').classList.remove('laranja');
+                    infoIdade.textContent = "Abaixo de 19 anos";
+                }
             }
 
+            if (grupo === 'sexo') {
+                const tipoSelecionado = document.querySelector('input[name="sexo"]:checked').value;
 
+                if (tipoSelecionado === 'masculino') {
+                    document.getElementById('lblMasculino').classList.add('laranja');
+                    document.getElementById('lblFeminino').classList.remove('laranja');
+                }
+                else {
+                    document.getElementById('lblFeminino').classList.add('laranja');
+                    document.getElementById('lblMasculino').classList.remove('laranja');
+                }
+            }
         }
-
-
-        
-
-
-        
-
-
-       
-    
-   
     </script>
-
+    
 </body>
 
 </html>
