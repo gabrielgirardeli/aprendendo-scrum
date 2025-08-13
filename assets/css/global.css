@@ -5,6 +5,18 @@
 }
 
 
+.voltar {
+    height: 50px;
+}
+.estrela {
+ height: 50px;
+}
+
+.criancas {
+    width: 100%;
+ 
+}
+
 :root {
    --fonte-family: 'popping', sans-serif;
    --text: 400 1rem/1.5 var(--fonte-family);
@@ -26,12 +38,26 @@
   --stroke-hightlight:  #f3541c;
   --semantic-error: #dc2626;
 
+
+}
+
+
+
+
 body {
     overflow: hidden;
-}
 
-.voltar {
-    height: 50px;
-}
+    font: var(--text);
+    color: var(--text-secondary);
 
 }
+
+h1, h2 {
+    color: var(--text-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
